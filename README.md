@@ -49,6 +49,10 @@ does not set the `Origin` header on form POSTs (possibly tracked by https://bugz
 (It's acceptable for Firefox to break because we intend our application to be used from Chrome (and
 I think that the proposed solution will work in Safari too).)
 
+It is acceptable for GET requests from Eve's frontend to partially fail by returning 200s, so long
+as they fail CORS (with Access-Control-Allow-Origin errors in the console), and the POST requests from
+Eve's frontend completely fail.
+
 It is acceptable for your solution to goals 4 and 5 to allow the POST call made by _Eve's_ backend
 to succeed too. Preventing server-side request forgery is out of scope for this exercise (that can
 be handled using server-to-server authentication).
