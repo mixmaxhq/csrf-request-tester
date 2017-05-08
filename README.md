@@ -52,3 +52,5 @@ I think that the proposed solution will work in Safari too).)
 It is acceptable for your solution to goals 4 and 5 to allow the POST call made by _Eve's_ backend
 to succeed too. Preventing server-side request forgery is out of scope for this exercise (that can
 be handled using server-to-server authentication).
+
+_Bonus goal_: document your solution in the form of automated tests on cors-gate's repo.
