@@ -1,0 +1,23 @@
+<html>
+  <body>
+    <h1>{{name}}</h1>
+    <img src="/api/image">
+    <form action="/api/form" method="POST">
+      <input type="submit" value="Submit form" />
+    </form>
+    <button id="get">GET</button>
+    <button id="post">POST</button>
+    <script type="text/javascript">
+      function makeRequest(method, url) {
+        var xhr = new XMLHttpRequest();
+        xhr.withCredentials = true;
+        xhr.open(method, url, true);
+        xhr.addEventListener('error', () => console.error('error'));
+        xhr.addEventListener('load', () => console.log('response:', xhr.responseText));
+        xhr.send();
+      }
+      document.querySelector('#get').onclick = () => makeRequest('GET', '/api/get');
+      document.querySelector('#post').onclick = () => makeRequest('POST', '/api/post');
+    </script>
+  </body>
+</html>
