@@ -8,6 +8,12 @@ const eve = express();
 [alice, bob, eve].forEach((server) => {
   server.set('views', './src/templates');
   server.set('view engine', 'hbs');
+
+  // Make sure that we can still use the Origin header with the referrer disabled.
+  server.use((req, res, next) => {
+    res.set('Referrer-Policy', 'no-referrer');
+    next();
+  });
 });
 
 alice.get('/', (req, res) => {

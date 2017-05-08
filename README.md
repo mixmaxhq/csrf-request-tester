@@ -46,6 +46,9 @@ to Alice's APIs. It may not properly handle GET requests… see the caveats belo
 
 #### Caveats
 
+Ideally you can solve goals 1 and 2 while maintaining a referrer policy of `no-referrer`. If not,
+we can talk about relaxing the referrer policy for our own services.
+
 It is acceptable for goals 1 and 2 to fail in Firefox as long as goal 3 is met in Firefox. This
 would happen using https://github.com/mixmaxhq/cors-gate because Firefox does not set the `Origin`
 header [on same-origin requests](http://stackoverflow.com/a/15514049/495611) and because Firefox
