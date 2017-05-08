@@ -46,6 +46,8 @@ It is acceptable for goals 1 and 2 to fail in Firefox as long as goal 3 is met i
 would happen using https://github.com/mixmaxhq/cors-gate because Firefox does not set the `Origin`
 header [on same-origin requests](http://stackoverflow.com/a/15514049/495611) and because Firefox
 does not set the `Origin` header on form POSTs (possibly tracked by https://bugzilla.mozilla.org/show_bug.cgi?id=446344).
+(It's acceptable for Firefox to break because we intend our application to be used from Chrome (and
+I think that the proposed solution will work in Safari too).)
 
 It is acceptable for your solution to goals 4 and 5 to allow the POST call made by _Eve's_ backend
 to succeed too. Preventing server-side request forgery is out of scope for this exercise (that can
