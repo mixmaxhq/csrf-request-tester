@@ -25,8 +25,8 @@ as by clicking the buttons on their pages.
 
 ### Goals
 
-Your overall goal is to preserve same-origin access by Alice while enabling CORS access by Bob and
-preventing CSRF attacks by Eve.
+Your overall goal is to _preserve same-origin access by Alice_ while _enabling CORS access by Bob_ and
+_preventing CSRF attacks by Eve_.
 
 That's a mouthful. First, some terminology:
 
