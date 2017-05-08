@@ -42,6 +42,8 @@ Now let's break the overall goal into smaller goals:
 4. The POST call made by Alice's backend should succeed. (Hint: set the `Origin` header.)
 5. The POST call made by Bob's backend should succeed. (Hint: set the `Origin` header.)
 
+#### Caveats
+
 It is acceptable for goals 1 and 2 to fail in Firefox as long as goal 3 is met in Firefox. This
 would happen using https://github.com/mixmaxhq/cors-gate because Firefox does not set the `Origin`
 header [on same-origin requests](http://stackoverflow.com/a/15514049/495611) and because Firefox
@@ -57,4 +59,6 @@ It is acceptable for your solution to goals 4 and 5 to allow the POST call made 
 to succeed too. Preventing server-side request forgery is out of scope for this exercise (that can
 be handled using server-to-server authentication).
 
-_Bonus goal_: document your solution in the form of automated tests on cors-gate's repo.
+#### Bonus
+
+Document your solution in the form of automated tests on cors-gate's repo.
