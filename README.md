@@ -37,8 +37,10 @@ additionally be no Access-Control-Allow-Origin errors in the console.
 Now let's break the overall goal into smaller goals:
 
 1. All API calls made by Alice's frontend should succeed.
-2. All API calls made by Bob's frontend should succeed. (Hint: apply [cors](https://github.com/expressjs/cors) to Alice's APIs).
-3. All API calls made by Eve's frontend should fail. (Hint: apply [cors-gate](https://github.com/mixmaxhq/cors-gate) to Alice's APIs.)
+2. All API calls made by Bob's frontend should succeed. (Hint: apply [cors](https://github.com/expressjs/cors)
+to Alice's APIs).
+3. All API calls made by Eve's frontend should fail. (Hint: apply [cors-gate](https://github.com/mixmaxhq/cors-gate)
+to Alice's APIs. It may not properly handle GET requests… see the caveats below.)
 4. The POST call made by Alice's backend should succeed. (Hint: set the `Origin` header.)
 5. The POST call made by Bob's backend should succeed. (Hint: set the `Origin` header.)
 
