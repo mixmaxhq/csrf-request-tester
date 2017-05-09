@@ -43,6 +43,9 @@ to Alice's APIs).
 to Alice's APIs. It may not properly handle GET requests… see the caveats below.)
 4. The POST call made by Alice's backend should succeed. (Hint: set the `Origin` header.)
 5. The POST call made by Bob's backend should succeed. (Hint: set the `Origin` header.)
+6. Make sure that you continue to satisfy the above goals when HTTPS is enabled, in case the browser
+applies the Origin header differently, particularly in conjunction with `Referrer-Policy: no-referrer;`
+You will need to make some modifications to this harness to enable that.
 
 #### Caveats
 
