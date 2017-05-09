@@ -30,7 +30,7 @@ alice.get('/', (req, res) => {
 alice.all('/api/*', (req, res) => {
   console.log(`request to alice at ${req.originalUrl}:
   - origin ${req.headers.origin}
-  - referrer ${req.headers.referrer}
+  - referrer ${req.headers.referer}
   - body ${JSON.stringify(req.body)}`);
   res.end();
 });
