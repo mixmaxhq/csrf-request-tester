@@ -46,18 +46,16 @@ to Alice's APIs. It may not properly handle GET requests… see the caveats belo
 6. Make sure that you continue to satisfy the above goals when HTTPS is enabled, in case the browser
 applies the Origin header differently, particularly in conjunction with `Referrer-Policy: no-referrer;`
 You will need to make some modifications to this harness to enable that.
+7. Make sure that neither Chrome nor Safari nor Firefox only expose referrer information over HTTPS
+(if ever) and never leak referrer paths.
 
 #### Caveats
 
-Ideally you can solve goals 1 and 2 while maintaining a referrer policy of `no-referrer`. If not,
-we can talk about relaxing the referrer policy for our own services.
-
-It is acceptable for goals 1 and 2 to fail in Firefox as long as goal 3 is met in Firefox. This
-would happen using https://github.com/mixmaxhq/cors-gate because Firefox does not set the `Origin`
-header [on same-origin requests](http://stackoverflow.com/a/15514049/495611) and because Firefox
-does not set the `Origin` header on form POSTs (possibly tracked by https://bugzilla.mozilla.org/show_bug.cgi?id=446344).
-(It's acceptable for Firefox to break because we intend our application to be used from Chrome (and
-I think that the proposed solution will work in Safari too).)
+Firefox does not set the `Origin` header [on same-origin requests](http://stackoverflow.com/a/15514049/495611)
+nor on form POSTs (possibly tracked by https://bugzilla.mozilla.org/show_bug.cgi?id=446344). So, to
+accomplish goals 1 and to in Firefox, we'll instead need to check the Referer header. But to accomplish
+goal 7, you'll need to set different `Referrer-Policy` headers and [meta referrer](https://wiki.whatwg.org/wiki/Meta_referrer)
+elements in the different browsers.
 
 It is acceptable for GET requests from Eve's frontend to partially fail by returning 200s, so long
 as they fail CORS (with Access-Control-Allow-Origin errors in the console), and the POST requests from
