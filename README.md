@@ -18,7 +18,7 @@ This starts three webservers, "Alice", "Bob", and "Eve":
 
   * Alice is your main application, running on http://localhost:9997.
   * Bob is a trusted service, running on http://localhost:9998.
-  * Eve is an untrusted service, running on http://localhost:9998.
+  * Eve is an untrusted service, running on http://localhost:9999.
 
 Open the services in your browser. Examine the server logs triggered by loading the services as well
 as by clicking the buttons on their pages.
