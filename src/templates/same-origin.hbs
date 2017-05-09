@@ -7,6 +7,7 @@
     </form>
     <button id="get">GET</button>
     <button id="post">POST</button>
+    <button id="post-beacon">POST via beacon</button>
     <script type="text/javascript">
       function makeRequest(method, url) {
         var xhr = new XMLHttpRequest();
@@ -18,6 +19,10 @@
       }
       document.querySelector('#get').onclick = () => makeRequest('GET', '/api/get');
       document.querySelector('#post').onclick = () => makeRequest('POST', '/api/post');
+      document.querySelector('#post-beacon').onclick = () => {
+        var data = new Blob([JSON.stringify({foo: 'foo'})], {type : 'application/json'});
+        navigator.sendBeacon('/api/post', data);
+      };
     </script>
   </body>
 </html>

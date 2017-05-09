@@ -1,3 +1,4 @@
+const bodyParser = require('body-parser');
 const express = require('express');
 const request = require('request');
 
@@ -8,6 +9,9 @@ const eve = express();
 [alice, bob, eve].forEach((server) => {
   server.set('views', './src/templates');
   server.set('view engine', 'hbs');
+
+  // Used to verify that `navigator.sendBeacon` can POST JSON even without preflighting.
+  server.use(bodyParser.json());
 
   // Make sure that we can still use the Origin header with the referrer disabled.
   server.use((req, res, next) => {
@@ -26,7 +30,8 @@ alice.get('/', (req, res) => {
 alice.all('/api/*', (req, res) => {
   console.log(`request to alice at ${req.originalUrl}:
   - origin ${req.headers.origin}
-  - referrer ${req.headers.referrer}`);
+  - referrer ${req.headers.referrer}
+  - body ${JSON.stringify(req.body)}`);
   res.end();
 });
 

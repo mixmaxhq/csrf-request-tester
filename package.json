@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/mixmaxhq/csrf-request-tester#readme",
   "dependencies": {
+    "body-parser": "^1.17.1",
     "express": "^4.15.2",
     "hbs": "^4.0.1",
     "nodemon": "^1.11.0",
