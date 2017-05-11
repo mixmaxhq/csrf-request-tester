@@ -2,10 +2,8 @@
   "name": "csrf-request-tester",
   "version": "1.0.0",
   "description": "Exploring ways of preventing CSRF attacks using request headers.",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon src/index.js"
+    "test": "gulp"
   },
   "repository": {
     "type": "git",
@@ -24,9 +22,15 @@
   "homepage": "https://github.com/mixmaxhq/csrf-request-tester#readme",
   "dependencies": {
     "body-parser": "^1.17.1",
+    "cors": "^2.8.3",
+    "emptygif": "^0.1.1",
+    "erik": "^1.2.1",
     "express": "^4.15.2",
+    "gulp": "^3.9.1",
     "hbs": "^4.0.1",
-    "nodemon": "^1.11.0",
-    "request": "^2.81.0"
+    "karma-chrome-launcher": "^2.1.1",
+    "karma-firefox-launcher": "^1.0.1",
+    "karma-safari-launcher": "^1.0.0",
+    "useragent": "^2.1.13"
   }
 }

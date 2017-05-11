@@ -11,7 +11,7 @@ yarn
 ## Usage
 
 ```sh
-yarn start
+yarn test
 ```
 
 This starts three webservers, "Alice", "Bob", and "Eve":
