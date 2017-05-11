@@ -50,12 +50,13 @@ const lockDown = [
   // header correctly reflects whether the request should be allowed.
   corsGate.originFallbackToReferrer(),
   cors({
-    origin: ['http://localhost:9997', 'http://localhost:9998'],
+    // The only origin permitted to make _cross-origin_ requests.
+    origin: 'http://localhost:9998',
     credentials: true
   }),
   corsGate({
     origin: 'http://localhost:9997',
-    strict: false,
+    strict: true,
     allowSafe: true
   })
 ];
@@ -74,7 +75,7 @@ alice.use('/api', lockDown, (req, res) => {
   }
 });
 
-function start(unref) {
+function start() {
   alice.listen(9997).unref();
   bob.listen(9998).unref();
   eve.listen(9999).unref();
